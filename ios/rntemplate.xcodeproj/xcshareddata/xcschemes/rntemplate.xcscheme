@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "timetodo.app"
-               BlueprintName = "timetodo"
-               ReferencedContainer = "container:timetodo.xcodeproj">
+               BuildableName = "rntemplate.app"
+               BlueprintName = "rntemplate"
+               ReferencedContainer = "container:rntemplate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "timetodoTests.xctest"
-               BlueprintName = "timetodoTests"
-               ReferencedContainer = "container:timetodo.xcodeproj">
+               BuildableName = "rntemplateTests.xctest"
+               BlueprintName = "rntemplateTests"
+               ReferencedContainer = "container:rntemplate.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "timetodo.app"
-            BlueprintName = "timetodo"
-            ReferencedContainer = "container:timetodo.xcodeproj">
+            BuildableName = "rntemplate.app"
+            BlueprintName = "rntemplate"
+            ReferencedContainer = "container:rntemplate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "timetodo.app"
-            BlueprintName = "timetodo"
-            ReferencedContainer = "container:timetodo.xcodeproj">
+            BuildableName = "rntemplate.app"
+            BlueprintName = "rntemplate"
+            ReferencedContainer = "container:rntemplate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
