@@ -3,10 +3,7 @@ import { View, Text } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { useState } from 'react';
 import { EyeBlind, EyeVisible } from '@/components/graphics/icons/exports';
-import { tailwindConfig } from '@/lib/tailwind-util';
 import { FieldProps } from './form-fields';
-
-const theme = tailwindConfig.theme.colors;
 
 interface InputProps extends FieldProps {
   classNames?: {
@@ -31,7 +28,7 @@ export default function Input({
 }: InputProps) {
   const [hidePassword, setHidePassword] = useState(true);
   return (
-    <View className={`w-full mb-[20px] ${classNames.container}`}>
+    <View>
       <TextInput
         {...props}
         {...(() => {
@@ -39,12 +36,12 @@ export default function Input({
             return {
               right: hidePassword ? (
                 <TextInput.Icon
-                  icon={() => <EyeBlind className='fill-second w-[25px] h-[25px]' />}
+                  icon={() => <EyeBlind />}
                   onPress={() => setHidePassword(false)}
                 />
               ) : (
                 <TextInput.Icon
-                  icon={() => <EyeVisible className='fill-second w-[25px] h-[25px]' />}
+                  icon={() => <EyeVisible />}
                   onPress={() => setHidePassword(true)}
                 />
               ),
@@ -57,25 +54,21 @@ export default function Input({
         error={Boolean(error)}
         theme={{
           colors: {
-            primary: theme.first,
-            accent: theme.dark,
-            placeholder: theme.dark,
-            text: theme.dark,
-            background: 'transparent',
-            error: theme.error,
+            primary: '',
+            accent: '',
+            placeholder: '',
+            text: '',
+            background: '',
+            error: '',
           },
         }}
         style={{
           backgroundColor: 'transparent',
         }}
-        underlineColor={theme.dark}
-        underlineColorAndroid={theme.dark}
+        underlineColor={''}
+        underlineColorAndroid={''}
       />
-      <Text
-        style={{ color: theme.error }}
-        className={`${classNames.error} text-error ${error?.message ? 'mt-[10px]' : ''}`}>
-        {error?.message}
-      </Text>
+      <Text style={{ color: '' }}>{error?.message}</Text>
     </View>
   );
 }

@@ -104,9 +104,7 @@ export default function Form({
 
   return (
     // Render the form wrapped in a View component with provided props and className
-    <View
-      {...props}
-      className={`${props.className}`}>
+    <View {...props}>
       {/* Map through the children and apply the form rendering logic */}
       {React.Children.map(children, (child: ReactElement | ReactNode) =>
         mapChildrenRecursively(child)
