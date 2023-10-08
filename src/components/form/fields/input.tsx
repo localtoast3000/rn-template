@@ -68,7 +68,7 @@ export default function Input({
         underlineColor={''}
         underlineColorAndroid={''}
       />
-      <Text style={{ color: '' }}>{error?.message}</Text>
+      <Text style={{ color: 'red' }}>{error?.message}</Text>
     </View>
   );
 }

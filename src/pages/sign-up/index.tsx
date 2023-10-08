@@ -11,13 +11,11 @@ export default function SignUp({ navigation }: AppNavigation<'sign-up'>) {
   const [existsError, setExistsError] = useState(false);
 
   return (
-    <View className='flex-1 p-[20px]'>
+    <View>
       {existsError ? (
-        <View className='flex-1 items-center w-full justify-center'>
-          <View className='flex w-full'>
-            <Text className='text-center text-[30px] mb-[100px] text-first'>
-              You already have an account!
-            </Text>
+        <View>
+          <View>
+            <Text>You already have an account!</Text>
             <Button
               onPress={() => navigation.push('login')}
               label='Login'
@@ -25,7 +23,7 @@ export default function SignUp({ navigation }: AppNavigation<'sign-up'>) {
           </View>
         </View>
       ) : serverError ? (
-        <Text className='text-error'>Failed to submit form, please try again</Text>
+        <Text>Failed to submit form, please try again</Text>
       ) : (
         <></>
       )}

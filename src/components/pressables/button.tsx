@@ -1,6 +1,13 @@
 import React from 'react';
-import { Pressable, View, PressableProps, GestureResponderEvent } from 'react-native';
-import { P } from '@/components/text/exports';
+import {
+  Pressable,
+  View,
+  GestureResponderEvent,
+  Text,
+  type PressableProps,
+  type TextStyle,
+  type ViewStyle,
+} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -10,12 +17,11 @@ import Animated, {
 interface ButtonProps extends PressableProps {
   label?: string | undefined;
   submitter?: boolean;
-  classNames?: {
-    container?: string;
-    button?: string;
-    animatedLayer?: string;
-    childWrapper?: string;
-    label?: string;
+  styles?: {
+    container?: ViewStyle;
+    animatedLayer?: ViewStyle;
+    label?: TextStyle;
+    button?: ViewStyle;
   };
   onPressIn?: (e: GestureResponderEvent) => void;
   onPressOut?: (e: GestureResponderEvent) => void;
@@ -23,12 +29,11 @@ interface ButtonProps extends PressableProps {
 
 export default function Button({
   label,
-  classNames = {
-    container: '',
-    button: '',
-    animatedLayer: '',
-    childWrapper: '',
-    label: '',
+  styles = {
+    container: {},
+    animatedLayer: {},
+    label: {},
+    button: {},
   },
   onPressIn = () => {},
   onPressOut = () => {},
@@ -39,14 +44,27 @@ export default function Button({
   const animatedStyle = useAnimatedStyle(() => {
     return {
       opacity: animated.value,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      ...styles.animatedLayer,
     };
   });
 
   return (
-    <View className={`bg-third rounded-[10px] ${classNames.container}`}>
+    <View
+      style={{
+        position: 'relative',
+      }}>
       <Pressable
-        className={`${classNames.button}`}
         {...props}
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...styles.button,
+        }}
         onPressIn={(e) => {
           onPressIn(e);
           animated.value = withTiming(0, { duration: 100 });
@@ -55,18 +73,8 @@ export default function Button({
           onPressOut(e);
           animated.value = withTiming(1, { duration: 200 });
         }}>
-        <Animated.View
-          className={`bg-second w-full flex items-center justify-center rounded-[10px] h-[60px] ${classNames.animatedLayer}`}
-          style={animatedStyle}
-        />
-        <View
-          className={`flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 rounded-[10px] ${classNames.childWrapper}`}>
-          {label ? (
-            <P className={`text-contrast text-[20px] ${classNames.label}`}>{label}</P>
-          ) : (
-            <>{children}</>
-          )}
-        </View>
+        <Animated.View style={animatedStyle} />
+        {label ? <Text style={styles.label}>{label}</Text> : <>{children}</>}
       </Pressable>
     </View>
   );

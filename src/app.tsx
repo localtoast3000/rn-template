@@ -3,8 +3,7 @@ import { Provider as Redux } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate as RedxuPersist } from 'redux-persist/integration/react';
 import NavigationStack from './navigation/stack';
-import { StyleContextProvider } from './style/cxt';
-import styleConfig from './style/style.config';
+import { ThemeContextProvider } from './style/exports';
 
 export default function App() {
   return (
@@ -17,9 +16,9 @@ export default function App() {
 function Index() {
   return (
     <RedxuPersist persistor={persistor}>
-      <StyleContextProvider config={styleConfig}>
+      <ThemeContextProvider>
         <NavigationStack />
-      </StyleContextProvider>
+      </ThemeContextProvider>
     </RedxuPersist>
   );
 }

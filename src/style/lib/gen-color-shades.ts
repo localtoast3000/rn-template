@@ -1,48 +1,14 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { StyleConfig, Theme, HexColor } from './types';
+import { HexColor, Theme } from '../lib/types';
 import chroma from 'chroma-js';
 
-interface StyleContextProviderProps {
-  config: StyleConfig;
-  children: ReactNode;
-}
-
-interface StyleContextProps {
-  theme: Theme;
-  styles: StyleConfig['styles'];
-  changeTheme: (name: string) => void;
-}
-
-const StyleContext = createContext<StyleContextProps | undefined>(undefined);
-
-export function StyleContextProvider({ config, children }: StyleContextProviderProps) {
-  // Enhance each theme in the config with additional shades
-  for (const themeName in config.themes) {
-    config.themes[themeName] = generateShadesForTheme(config.themes[themeName]);
+export function generateColorShades(theme: Theme) {
+  for (const themeType in theme) {
+    theme[themeType] = generateShadesForTheme(theme[themeType]);
   }
-  const [theme, setTheme] = useState<Theme>(config.themes.light);
-
-  const changeTheme = (name: string) => {
-    setTheme(config.themes[name]);
-  };
-
-  const contextValue = {
-    theme: theme,
-    styles: config.styles,
-    changeTheme,
-  };
-
-  return <StyleContext.Provider value={contextValue}>{children}</StyleContext.Provider>;
+  return theme;
 }
 
-export function useStyleCxt(): StyleContextProps {
-  const context = useContext(StyleContext);
-  if (context === undefined)
-    throw new Error('useStyleCxt must be used within a StyleContextProvider');
-  return context;
-}
-
-function generateShadesForTheme(
+export function generateShadesForTheme(
   theme: Record<string, HexColor | undefined>
 ): Record<string, HexColor | undefined> {
   const shades: Record<string, HexColor | undefined> = {};

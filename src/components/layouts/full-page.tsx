@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, SafeAreaView, View } from 'react-native';
+import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 import { ReactNode } from 'react';
+import { useThemeCxt } from '@/style/exports';
 
 interface FullPageLayoutProps {
   children: ReactNode;
@@ -11,19 +12,26 @@ export default function FullPageLayout({
   children,
   scrollable = false,
 }: FullPageLayoutProps) {
+  const { theme } = useThemeCxt();
+
   return (
-    <>
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.base }]}>
       {scrollable ? (
-        <SafeAreaView className='flex'>
-          <ScrollView className='flex-1'>
-            <View className='flex-1 p-[30px] font-body-400 text-dark'>{children}</View>
-          </ScrollView>
-        </SafeAreaView>
+        <ScrollView contentContainerStyle={styles.container}>{children}</ScrollView>
       ) : (
-        <SafeAreaView className='flex flex-1'>
-          <View className='flex-1 p-[30px] font-body-400 text-dark'>{children}</View>
-        </SafeAreaView>
+        <View style={styles.container}>{children}</View>
       )}
-    </>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+  },
+});

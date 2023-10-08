@@ -13,13 +13,13 @@ export default function Login({ navigation }: AppNavigation<'login'>) {
   const { mountUser } = useUserActions();
 
   return (
-    <View className='flex-1 p-[20px]'>
+    <View>
       {notExistCount >= 3 ? (
         <NotExistRedirectView navigation={navigation} />
       ) : notExistCount > 0 ? (
-        <Text className='text-error'>Account does not exist</Text>
+        <Text>Account does not exist</Text>
       ) : serverError ? (
-        <Text className='text-error'>Failed to submit login form, please try again</Text>
+        <Text>Failed to submit login form, please try again</Text>
       ) : (
         <></>
       )}
@@ -76,11 +76,9 @@ export default function Login({ navigation }: AppNavigation<'login'>) {
 
 function NotExistRedirectView({ navigation }: AppNavigation<'login'>) {
   return (
-    <View className='flex-1 items-center w-full justify-center'>
-      <View className='flex w-full'>
-        <Text className='text-center text-[30px] mb-[100px] text-first'>
-          Create an account!
-        </Text>
+    <View>
+      <View>
+        <Text>Create an account!</Text>
         <Button
           onPress={() => navigation.push('sign-up')}
           label='Sign up'
