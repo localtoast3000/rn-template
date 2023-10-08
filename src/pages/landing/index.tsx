@@ -1,7 +1,6 @@
 import React from 'react';
 import { FullPageLayout } from '@/components/layouts/exports';
 import { H1 } from '@/components/text/exports';
-import { Chat as ChatIcon } from '@/components/graphics/icons/exports';
 import { Button } from '@/components/pressables/exports';
 import { AppNavigation } from '@/navigation/types';
 
