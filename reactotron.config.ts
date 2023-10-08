@@ -11,7 +11,7 @@ const packagerHostname = scriptURL.split('://')[1].split(':')[0];
 console.disableYellowBox = true;
 
 Reactotron.configure({
-  name: 'diday',
+  name: 'rn-template',
   host: packagerHostname,
   createSocket: (path) => new ReactotronFlipper(path),
 });
