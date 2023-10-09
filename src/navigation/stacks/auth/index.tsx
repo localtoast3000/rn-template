@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Landing, SignUp, Login } from '../../screens/auth/exports';
+import { Landing, SignUp, Login } from '../../../screens/auth/exports';
 
 export type AuthNavigationParamsList = {
   landing: undefined;

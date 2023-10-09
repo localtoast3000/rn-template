@@ -4,7 +4,7 @@ import { FullPageLayout } from '@/components/layouts/exports';
 import { Button } from '@/components/pressables/exports';
 import { AppNavigation } from '@/navigation/types';
 import { useThemeCxt, ThemeType, font } from '@/style/exports';
-import { useAuthCxt } from '@/navigation/lib/auth-cxt';
+import { useAuthCxt } from '@/navigation/stacks/auth/cxt';
 
 export default function Landing({ navigation }: AppNavigation<'landing'>) {
   const { setAuthenticated } = useAuthCxt();

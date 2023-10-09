@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 import { ReactNode } from 'react';
 import { useThemeCxt } from '@/style/exports';
-import BottomTabsNavigator from '@/navigation/stacks/bottom-tabs-app-stack';
+import BottomTabsNavigator from '@/navigation/stacks/app';
 
 interface FullPageLayoutProps {
   children: ReactNode;
