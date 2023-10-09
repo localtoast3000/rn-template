@@ -1,4 +1,4 @@
-import { AppNavigationParamsList } from './stack';
+import { AppNavigationParamsList } from './navigator';
 import type {
   NativeStackScreenProps,
   NativeStackNavigationProp,

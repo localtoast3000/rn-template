@@ -1,3 +1,4 @@
-export { default as Landing } from '../landing';
-export { default as Login } from '../login';
-export { default as SignUp } from '../sign-up';
+export { default as Landing } from '../auth/landing';
+export { default as Login } from '../auth/login';
+export { default as SignUp } from '../auth/sign-up';
+export { default as Dashboard } from '../dashboard';

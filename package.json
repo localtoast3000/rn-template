@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@react-native/metro-config": "^0.73.1",
+    "@react-navigation/bottom-tabs": "^6.5.9",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "@reduxjs/toolkit": "^1.9.7",
