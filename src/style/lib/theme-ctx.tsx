@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { ThemeType } from './types';
+import { AppTheme, AppThemeTypes } from '../types.config';
 import theme from '../theme.config';
 
 interface ThemeContextProviderProps {
@@ -7,8 +7,8 @@ interface ThemeContextProviderProps {
 }
 
 interface ThemeContextProps {
-  theme: ThemeType;
-  changeActiveTheme: (name: string) => void;
+  theme: AppTheme;
+  changeActiveTheme: (name: AppThemeTypes) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -16,7 +16,7 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
   const [activeTheme, setActiveTheme] = useState(theme['light']);
 
-  const changeActiveTheme = (name: string) => {
+  const changeActiveTheme = (name: AppThemeTypes) => {
     if (theme[name]) setActiveTheme(theme[name]);
   };
 

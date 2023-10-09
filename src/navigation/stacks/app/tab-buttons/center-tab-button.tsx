@@ -3,7 +3,7 @@ import Svg, { Path, Circle, Line } from 'react-native-svg';
 
 export default function CenterTab() {
   return (
-    <Button styles={{ container: { width: 100 } }}>
+    <Button styles={{ container: { width: 50 } }}>
       <AddIcon />
     </Button>
   );

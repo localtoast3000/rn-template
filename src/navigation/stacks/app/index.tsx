@@ -1,27 +1,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Schedule, NewTask, Reports, Profile } from '../../../screens/app/exports';
-import { useThemeCxt } from '@/style/exports';
-import { CenterTabButton } from './tab-buttons/exports';
+import { Home, Schedule, NewTask, Reports, Profile } from '@/screens/app/exports';
+import { CustomTabBar } from './tab-bar';
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabsAppNavigationStack() {
-  const { theme } = useThemeCxt();
-
   return (
     <Tab.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
       initialRouteName='dashboard'
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
-        tabBarLabelStyle: {
-          fontSize: 16,
-        },
-        tabBarStyle: {
-          backgroundColor: theme.baseHighlight,
-        },
-      }}>
+      screenOptions={{ headerShown: false }}>
       <Tab.Screen
         name='home'
         component={Home}
@@ -33,9 +21,6 @@ export default function BottomTabsAppNavigationStack() {
       <Tab.Screen
         name='new-task'
         component={NewTask}
-        options={{
-          tabBarButton: () => <CenterTabButton />,
-        }}
       />
       <Tab.Screen
         name='reports'

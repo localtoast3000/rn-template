@@ -1,6 +1,6 @@
-import { Theme } from './lib/types';
+import { AppThemes } from './types.config';
 
-const theme: Theme = {
+const theme: AppThemes = {
   light: {
     base: '#F9F9FB',
     baseHighlight: '#ffffff',
