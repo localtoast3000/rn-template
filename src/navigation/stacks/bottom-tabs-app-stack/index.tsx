@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Dashboard } from '../../pages/exports';
+import { Home, Schedule, NewTask, Reports, Profile } from '../../../screens/app/exports';
 import { useThemeCxt } from '@/style/exports';
+import { CenterTab } from './tabs/exports';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,8 +23,27 @@ export default function BottomTabsAppNavigationStack() {
         },
       }}>
       <Tab.Screen
-        name='dashboard'
-        component={Dashboard}
+        name='home'
+        component={Home}
+      />
+      <Tab.Screen
+        name='schedule'
+        component={Schedule}
+      />
+      <Tab.Screen
+        name='new-task'
+        component={NewTask}
+        options={{
+          tabBarButton: () => <CenterTab />,
+        }}
+      />
+      <Tab.Screen
+        name='reports'
+        component={Reports}
+      />
+      <Tab.Screen
+        name='profile'
+        component={Profile}
       />
     </Tab.Navigator>
   );

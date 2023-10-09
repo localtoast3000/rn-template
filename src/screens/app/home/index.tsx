@@ -5,13 +5,13 @@ import { Button } from '@/components/pressables/exports';
 import { AppNavigation } from '@/navigation/types';
 import { useThemeCxt, ThemeType, font } from '@/style/exports';
 
-export default function Dashboard({ navigation }: AppNavigation<'dashboard'>) {
+export default function Home({ navigation }: AppNavigation<'home'>) {
   const { theme } = useThemeCxt();
   const styles = styleSheet(theme);
 
   return (
     <FullPageLayout scrollable={false}>
-      <Text style={styles.header}>TimeToDo</Text>
+      <Text style={styles.header}>Home</Text>
     </FullPageLayout>
   );
 }

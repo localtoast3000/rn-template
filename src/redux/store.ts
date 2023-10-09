@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import user from './reducers/user';
 
 const persistorConfig = {
-  key: 'diday',
+  key: 'rn-template',
   storage: AsyncStorage,
 };
 
