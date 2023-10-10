@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import { FullPageLayout } from '@/components/layouts/exports';
 import { Button } from '@/components/pressables/exports';
 import { AppNavigation } from '@/navigation/types';
-import { useThemeCxt, ThemeType, font } from '@/style/exports';
+import { useThemeCxt, AppTheme, font } from '@/style/exports';
 
 export default function Home({ navigation }: AppNavigation<'reports'>) {
   const { theme } = useThemeCxt();
@@ -16,7 +16,7 @@ export default function Home({ navigation }: AppNavigation<'reports'>) {
   );
 }
 
-const styleSheet = (theme: ThemeType) => {
+const styleSheet = (theme: AppTheme) => {
   return StyleSheet.create({
     header: {
       ...font.main[800],
